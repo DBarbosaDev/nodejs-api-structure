@@ -37,6 +37,10 @@ app.use(mongoSanitize());
 
 app.use('/api', routes);
 
+app.use((req, res) => {
+    res.status(404).send('Not Found');
+});
+
 app.listen(configs.SERVER_PORT, 'localhost', () => {
     console.log(`Server started at port ${configs.SERVER_PORT}`);
 });

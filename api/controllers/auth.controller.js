@@ -1,10 +1,11 @@
-const { ResponsesService, AuthService } = require('../services');
+const { AuthService } = require('../services');
+const { ResponsesEmitter } = require('../framework');
 
 module.exports = {
     login: (req, res) => {
-        const ResponsesServiceInstance = new ResponsesService(res);
+        const ResponsesEmitterInstance = new ResponsesEmitter(res);
 
-        return ResponsesServiceInstance.success({test: 'hello world'});
+        return ResponsesEmitterInstance.success({ test: 'hello world' }).send();
     },
 
     regist: (req, res) => {}
